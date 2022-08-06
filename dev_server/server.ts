@@ -6,6 +6,11 @@ import { config } from 'dotenv'
 import path from 'path'
 import Redis from 'ioredis'
 import connectRedis from 'connect-redis'
+declare module 'express-session' {
+  interface SessionData {
+    isLogin: boolean;
+  }
+}
 
 //my files
 import {getRandomString, getOneHoure, serverFilePath, isProduction} from './config/functions'
