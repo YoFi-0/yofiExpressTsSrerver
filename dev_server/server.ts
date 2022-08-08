@@ -4,7 +4,7 @@ import server_config from './config/server_config'
 const {sequelize} = require('./database/models')
 import routeRoute from './routes/pages/route'
 import indexRoute from './routes/pages'
-import apiRoute from './routes/APIs/api
+import apiRoute from './routes/APIs/api'
 import { isProduction, port } from './config/functions'
 
 
