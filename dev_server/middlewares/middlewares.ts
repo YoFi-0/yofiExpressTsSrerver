@@ -14,3 +14,7 @@ export const heroSesstion  = (req:Request, res:Response, next:NextFunction) =>{
         res.status(500)
     }
 }
+
+export const apiMiddlewares = (req:Request, res:Response, next:NextFunction) =>{ 
+    next()
+}

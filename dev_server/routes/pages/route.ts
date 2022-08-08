@@ -3,7 +3,7 @@ const route = Router()
 
 
 route.get('/', (req, res) => {
-    // your page here
+    res.render('route')
 })
 
 export default route

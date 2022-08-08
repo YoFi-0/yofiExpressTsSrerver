@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "nodemon ./dev_server/server.ts"
   },
-  "name": "serialserver",
+  "name": "yofi_server",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",

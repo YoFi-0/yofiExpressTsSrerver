@@ -1,5 +1,5 @@
 import type { Express } from "express"
-import sesstion from 'express-session'
+import session from 'express-session'
 import expressCookie from 'cookie-parser'
 import path from 'path'
 import Redis from 'ioredis'
@@ -14,6 +14,12 @@ import {getRandomString, getOneHoure, serverFilePath, isProduction} from '../con
 config()
 const rootDirPath = `${__dirname}/../`
 export default  (app:Express, express:any) =>{
+    process.on('uncaughtException', err => {
+        if(!isProduction){
+            process.exit(1)
+        }
+        console.log(err)
+    })
     app.use(expressCookie())
     app.use(express.json())
     app.use(express.static(path.join(rootDirPath ,'public')))
@@ -21,8 +27,8 @@ export default  (app:Express, express:any) =>{
     app.set('views', path.join(rootDirPath , 'views'));
     app.use(express.urlencoded({extended: false}))
     if(isProduction){
-        const sesstionStore = FileStore(sesstion)
-        app.use(sesstion({
+        const sesstionStore = FileStore(session)
+        app.use(session({
             secret: process.env.SESTION_SECRIT!,
             resave: false,
             name: "YOFI_SESSTION",
@@ -37,9 +43,9 @@ export default  (app:Express, express:any) =>{
             })
         }))
     } else {
-        const RedisStore = connectRedis(sesstion)
+        const RedisStore = connectRedis(session)
         const RedisClint = new Redis()
-        app.use(sesstion({
+        app.use(session({
             secret: process.env.SESTION_SECRIT!,
             resave: false,
             name: "YOFI_SESSTION",

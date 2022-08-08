@@ -2,28 +2,24 @@
 import express from 'express'
 import server_config from './config/server_config'
 const {sequelize} = require('./database/models')
-import routeRoute from './routes/route'
-import indexRoute from './routes'
+import routeRoute from './routes/pages/route'
+import indexRoute from './routes/pages'
+import apiRoute from './routes/api'
 import { isProduction, port } from './config/functions'
 
 
-
-
 const app = express()
-declare module 'express-session' {
-    interface SessionData {
-        isLogin: boolean,
-        hero:boolean
-    }
-}
-
-
 server_config(app, express)
+
+
+
+
+
 app.use('/route', routeRoute)
 app.use('/', indexRoute)
+app.use('/api', apiRoute)
 
-
-app.listen(port, ()=>{
+app.listen(port, async()=>{
     console.log(`production Mode ${isProduction ? 'on' : 'off'}`)
     console.log(`yofi server start on port => ${port}`)
     sequelize.sync(
@@ -37,3 +33,4 @@ app.listen(port, ()=>{
         console.log('DB_conection: connection database erorr')
     })
 })
+throw Error('lala')
