@@ -1,11 +1,11 @@
 
 module.exports = {
   "development": {
-    "username": 'root',
+    "username": '',
     "password": '',
-    "database": 'our_chat',
-    "host": '127.0.0.1',
-    "dialect":'mysql',
+    "database": '',
+    "host": '',
+    "dialect":'',
   },
   "test": {
     "username": "root",
