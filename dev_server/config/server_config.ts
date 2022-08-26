@@ -6,8 +6,7 @@ import Redis from 'ioredis'
 import { config } from 'dotenv'
 import connectRedis from 'connect-redis'
 import FileStore from 'session-file-store'
-import {getRandomString, getOneHoure, serverFilePath, isProduction} from '../config/functions'
-
+import {getOneDay, serverFilePath, isProduction} from '../config/functions'
 
 
 
@@ -35,7 +34,7 @@ export default  (app:Express, express:any) =>{
             saveUninitialized: true,
             cookie: { 
                 httpOnly: true,
-                maxAge: 1000 * 60 * 60
+                maxAge: getOneDay()
             },
             store: new sesstionStore({
                 reapInterval: 60 * 60,
@@ -52,7 +51,7 @@ export default  (app:Express, express:any) =>{
             saveUninitialized: true,
             cookie: { 
                 httpOnly: true,
-                maxAge: 1000 * 60 * 60
+                maxAge: getOneDay()
             },
             store: new RedisStore({
                 client: RedisClint,
