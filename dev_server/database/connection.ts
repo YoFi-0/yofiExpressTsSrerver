@@ -9,6 +9,7 @@ const DB_USER:string = process.env.DB_USER!
 const DB_PORT:number = isNaN(Number(process.env.DB_PORT)) ? 3306 : Number(process.env.DB_PORT)
 const DB_DATABASE_NAME:string = process.env.DB_NAME!
 
+
 export const Connection:Sequelize.Sequelize = new Sequelize.Sequelize(
     DB_DATABASE_NAME,
     DB_USER,

@@ -4,7 +4,7 @@ import {
 } from 'sequelize';
 import { Connection } from '../connection';
 
-// const TableName = Connection.define('table_name', {
+// const Table_Name = Connection.define('nable_name', {
 //   id: {
 //     allowNull: false,
 //     autoIncrement: true,
@@ -25,4 +25,4 @@ import { Connection } from '../connection';
 //   },
 // });
 
-// export default User
+// export default Table_Name

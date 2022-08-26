@@ -3,9 +3,9 @@ module.exports = {
   "development": {
     "username": 'root',
     "password": '',
-    "database": '',
+    "database": 'our_chat',
     "host": '127.0.0.1',
-    "dialect":'',
+    "dialect":'mysql',
   },
   "test": {
     "username": "root",
