@@ -34,7 +34,8 @@ export default  (app:Express, express:any) =>{
             saveUninitialized: true,
             cookie: { 
                 httpOnly: true,
-                maxAge: getOneDay()
+                maxAge: getOneDay(),
+                secure: true
             },
             store: new sesstionStore({
                 reapInterval: 60 * 60,

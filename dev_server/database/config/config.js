@@ -1,12 +1,11 @@
-require('dotenv').config()
 
 module.exports = {
   "development": {
     "username": 'root',
     "password": '',
-    "database": 'sequlize',
+    "database": '',
     "host": '127.0.0.1',
-    "dialect":'mysql',
+    "dialect":'',
   },
   "test": {
     "username": "root",
